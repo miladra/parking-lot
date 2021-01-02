@@ -16,7 +16,7 @@ import java.util.List;
 @Transactional
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
-    @Query( "SELECT payment " +
+    @Query( "SELECT distinct payment " +
             "FROM Vehicle as vehicle ,Parking as parking , Payment as payment " +
             "WHERE vehicle.plate = :plate ")
     List<Payment> findAllByVehicle(@Param("plate") String plate);
